@@ -76,6 +76,10 @@ class Routes {
         handler: handleRouteChangeRequest(routeCreator.login),
         permissionType: PermissionType.login,
         wrapInScaffold: false);
+    router.define('/reset-password',
+        handler: handleRouteChangeRequest(routeCreator.resetPassword),
+        permissionType: PermissionType.login,
+        wrapInScaffold: false);
     // main app routes
     router.define('/',
         handler: handleRouteChangeRequest(routeCreator.root),

@@ -443,7 +443,14 @@ class ManagementRepositoryClientBloc implements Bloc {
       password: password,
     ))
         .then((tp) {
-      hasToken(tp);
+      if (tp.person?.passwordRequiresReset == true) {
+        ManagementRepositoryClientBloc.router
+            .navigateRoute('/reset-password');
+        print('navigated');
+      }
+
+      else {hasToken(tp);}
+
     });
   }
 
@@ -475,6 +482,7 @@ class ManagementRepositoryClientBloc implements Bloc {
             person.id!.id,
             PasswordReset(
               password: password,
+              reactivate: true
             ))
         .then((tp) {
       setBearerToken(tp.accessToken);

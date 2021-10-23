@@ -31,6 +31,7 @@ import 'package:open_admin_app/widgets/user/create/create_user_bloc.dart';
 import 'package:open_admin_app/widgets/user/edit/edit_user_bloc.dart';
 import 'package:open_admin_app/widgets/user/list/list_users_bloc.dart';
 import 'package:open_admin_app/widgets/user/register/register_url_bloc.dart';
+import 'package:open_admin_app/widgets/user/reset-password/password_reset_widget.dart';
 
 Handler handleRouteChangeRequest(builder) {
   return Handler(
@@ -55,6 +56,10 @@ class RouteCreator {
 
   Widget login(mrBloc, {params}) {
     return const SigninWrapperWidget();
+  }
+
+  Widget resetPassword(mrBloc, {params}) {
+    return const ResetPasswordWidget();
   }
 
   Widget setup(mrBloc, {params}) {
